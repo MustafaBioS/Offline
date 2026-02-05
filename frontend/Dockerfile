@@ -1,4 +1,4 @@
-FROM node:18 AS build
+FROM node:22-alpine AS build
 WORKDIR /frontend
 
 COPY package*.json ./
@@ -7,7 +7,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:18
+FROM node:22-alpine
 WORKDIR /frontend
 
 RUN npm install -g serve
