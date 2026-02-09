@@ -97,16 +97,6 @@ function App() {
               </ul>
               If you're found to be committing fraud, Depending on the severity, you may be banned from Hackatime and consequentially all Hack Club events.</span>
             </button>
-
-            <button className='q' onClick={toggleFAQ}>
-              <div className='q-header'>
-                What are the requirements for each project?
-                <span className='arrow'>▼</span>
-              </div>
-              <span className='hiddenDesc'>Have open-source code on Github with commits every hour.<br></br><br></br>
-              No AI usage at all.<br></br><br></br>
-              Reflect the hours and work spent on the project accurately. don't commit fraud!</span>
-            </button>
           </div>
 
         </div>
