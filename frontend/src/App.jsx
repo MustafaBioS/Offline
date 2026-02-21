@@ -1,7 +1,9 @@
 import './App.css'
 import FaultyTerminal from './components/FaultyTerminal';
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
-function App() {
+
+function Home() {
 
   return (
 
@@ -66,7 +68,7 @@ function App() {
                 What are the rewards?
                 <span className='arrow'>▼</span>
               </div>
-              <span className='hiddenDesc'>There are three different tiers, for 5 hours you get ___ for 10 hours you get ___ for 20 hours you get ___</span>
+              <span className='hiddenDesc'>Check out the <span className='chsh'>Shop!</span></span>
             </button>
 
             <button className='q' onClick={toggleFAQ}>
@@ -102,12 +104,14 @@ function App() {
         </div>
       </div>
 
+
+
     <div className="allCon">
 
       <h1 className='title'>Offline</h1>
       <p className='desc'>Make an app that works when you're offline and syncs back once you're online and get internet related rewards</p>
 
-      <button className='btn' onClick={RSVP}>RSVP Now!</button>
+      <button className='btn' onClick={submit}>Submit</button>
 
     </div>
 
@@ -116,7 +120,45 @@ function App() {
   )
 }
 
-function RSVP() {
+function Shop() {
+
+  return (
+
+    <div className='BGCon'>
+    <FaultyTerminal
+      className='BG'
+      scale={1}
+      gridMul={[2, 1]}
+      digitSize={1.5}
+      scanlineIntensity={0.3}
+      glitchAmount={1}
+      flickerAmount={1}
+      chromaticAberration={0.05}
+      curvature={0.2}
+      tint="#00ff00"
+    />
+
+    <div className="shop"></div>
+
+
+    </div>
+  )
+}
+
+function shop() {
+}
+
+function chosen(e) {
+  const current = e.currentTarget;
+
+  document.querySelectorAll(".nav-item").forEach(item => {
+    if (item !== current) item.classList.remove('chosen');
+  });
+
+  current.classList.add('chosen');
+}
+
+function submit() {
   window.location.href = "https://forms.fillout.com/t/pER8jUKEhWus";
 }
 
@@ -145,4 +187,19 @@ function toggleFAQ(e) {
   current.classList.toggle('open');
 }
 
-export default App
+export default function App() {
+
+  return (
+    <>
+      <nav className="nvb">
+        <Link to="/" className={location.pathname === "/" ? "home nav-item chosen" : "home nav-item"} onClick={chosen}>Home</Link>
+        <Link to="/shop" className={location.pathname === "/shop" ? "shop nav-item chosen" : "shop nav-item"} onClick={chosen}>Shop</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+      </Routes>
+    </>
+  );
+}
