@@ -5,7 +5,7 @@ export default function shop() {
   return (
 
     <div className='BGCon'>
-    <FaultyTerminal
+    {/* <FaultyTerminal
       className='BG'
       scale={1}
       gridMul={[2, 1]}
@@ -16,9 +16,20 @@ export default function shop() {
       chromaticAberration={0.05}
       curvature={0.2}
       tint="#00ff00"
-    />
+    /> */}
 
-    <div className="shop"></div>
+    <div className="shopCon">
+      <div className="grid-item">
+        <img src=""></img>
+        <h1>Title</h1>
+        <p>Desc</p>
+        <div>Row of Price</div>
+        <button>Buy Now</button>
+      </div>
+      <div className="grid-item"></div>
+      <div className="grid-item"></div>
+      <div className="grid-item"></div>
+    </div>
 
 
     </div>

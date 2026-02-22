@@ -1,11 +1,28 @@
 import FaultyTerminal from './components/FaultyTerminal';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/me", { credentials: "include" })
+      .then(res => {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then(data => setUser(data))
+      .catch(() => setUser(null));
+  }, []);
+
+  const login = () => {
+    window.location.href = "http://localhost:3000/login";
+  };
 
   return (
 
     <div className='BGCon'>
-      <FaultyTerminal
+      {/* <FaultyTerminal
         className='BG'
         scale={1}
         gridMul={[2, 1]}
@@ -16,9 +33,17 @@ export default function Home() {
         chromaticAberration={0.05}
         curvature={0.2}
         tint="#00ff00"
-      />
+      /> */}
 
       <div className="overlay" onClick={modal}></div>
+
+        <div>
+        {!user && (
+            <div className="loginCon">
+            <button className="login" onClick={login}>Login</button>
+            </div>
+        )}
+        </div>
 
       <div className="faqCon">
         <button className='faq' onClick={modal}>?</button>
@@ -115,6 +140,10 @@ export default function Home() {
     </div>
 
   )
+}
+
+function login() {
+    window.location.href = "http://localhost:3000/login";
 }
 
 function submit() {
