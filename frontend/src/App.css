@@ -282,9 +282,60 @@ html, body {
   opacity: 0.6;
 }
 
+.loginCon {
+  position: absolute;
+  top: 7.5%;
+  left: 3.5%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  display: flex;
+  color: white;
+}
+
+.login {
+  height: 52.5px;
+  width: 135px;
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login:hover {
+  background-color: #378a10;
+  color: white;
+  cursor: pointer;
+  transform: translateY(-6px);
+}
+
+.shopCon {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  justify-items: center;
+}
+
+.grid-item {
+  height: 375px;
+  width: 325px;
+  background-color: rebeccapurple;
+  border-radius: 12px;
+}
+
 @media (max-width: 800px) {
   .faqCon {
     left: 90%;
     top: 6%;
+  }
+
+  .loginCon {
+    top: 6%
+  }
+  
+  .desc {
+    width: 95%;
   }
 }
