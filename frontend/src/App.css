@@ -325,6 +325,10 @@ html, body {
   border-radius: 12px;
 }
 
+.test {
+  color: white;
+}
+
 @media (max-width: 800px) {
   .faqCon {
     left: 90%;

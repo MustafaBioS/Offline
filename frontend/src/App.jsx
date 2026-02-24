@@ -4,6 +4,7 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from './Home.jsx';
 import Shop from './Shop.jsx';
 import { useEffect, useState } from 'react';
+import AdminPage from './Admin.jsx';
 
 function chosen(e) {
   const current = e.currentTarget;
@@ -45,6 +46,7 @@ export default function App() {
         {user && (
         <Route path="/shop" element={<Shop />} />
         )}
+        <Route path="/offlineAdmin" element={<AdminPage />} />
       </Routes>
     </>
   );
